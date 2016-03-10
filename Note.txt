@@ -1,10 +1,11 @@
-1. Concept of nested view
+1. Concept of nested view - Had to use inline controller for some reasons adding controller to app was not working :(
 2. passing parameters using $stateParams, passing multiple parameters. Can we pass object - need to investigate
 3. How to remove # from the url generated
 4. Benefit of $stateParams over query string is that there is no limit for $stateParams.
 5. Concept of multiple named views
-6. Concept of resolve - TODO
+6. Concept of resolve - resolved property is injected into the controller, use this to fetch the data required for view instead of doing it in controller
 7. Concept of abstract route - TODO
+8. $state.go
 
 
 
