@@ -1,0 +1,15 @@
+1. Concept of nested view
+2. passing parameters using $stateParams, passing multiple parameters. Can we pass object - need to investigate
+3. How to remove # from the url generated
+4. Benefit of $stateParams over query string is that there is no limit for $stateParams.
+5. Concept of multiple views - TODO
+6. Concept of resolve - TODO
+7. Concept of named views - TODO
+8. Concept of abstract route
+
+
+
+
+
+ui-router cheet sheet
+https://d2eip9sf3oo6c2.cloudfront.net/pdf/egghead-io-ui-router-cheat-sheet.pdf
