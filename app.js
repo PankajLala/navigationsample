@@ -1,11 +1,13 @@
 var app = angular.module('routeApp', ['ui.router']);
 
-app.config(['$locationProvider', function($locationProvider){
+app.config(['$locationProvider', '$urlMatcherFactoryProvider', function($locationProvider, $urlMatcherFactoryProvider){
   $locationProvider.html5Mode(true);
+  $urlMatcherFactoryProvider.strictMode(false);
 }]);
 app.config(function($stateProvider, $urlRouterProvider){
   // For any unmatched url, redirect to /home aparantly can't be done using stateprovider
   $urlRouterProvider.otherwise("/");
+
    // Now set up the states
    $stateProvider
        .state('home',{
@@ -93,7 +95,31 @@ app.config(function($stateProvider, $urlRouterProvider){
             }
          }
        })
-
+       .state('support', {
+         abstract: true,
+         views: {
+           'header': {
+           templateUrl: '/templates/partials/header.html'
+           },
+           'content': {
+              templateUrl: '/templates/partials/content.html'
+            },
+            'tabContent': {
+               templateUrl: '/templates/support.html'
+             },
+           'footer': {
+              templateUrl: '/templates/partials/footer.html'
+           }
+         }
+       })
+       .state('support.create', {
+          url:'/support', //Note
+          templateUrl: '/templates/supportcreate.html'
+       })
+       .state('support.cases', {
+          url:'/support/cases',
+          templateUrl: '/templates/listCases.html'
+       })
 });
 
 app.controller('ContactController', function($scope, $stateParams){

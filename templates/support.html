@@ -1,0 +1,17 @@
+<p>Scenrio to show how abstract states are configured</p>
+<div >
+    <div >
+        <div >
+            <h1 class="t-xxlarge">Contact support</h1>
+            <div >
+                <div >
+                    <ul class="nav nav-tabs">
+                        <li ui-sref-active="active" style="margin:0 8px;" ui-sref="support.create">New ticket</li>
+                        <li style="margin:0 8px;" ng-class="{'active': (vm.$state.includes('support.edit') || vm.$state.includes('support.cases')) }" ui-sref="support.cases">My tickets</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ui-view></div>
+</div>
