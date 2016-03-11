@@ -27,7 +27,9 @@
     https://medium.com/opinionated-angularjs/advanced-routing-and-resolves-a2fcbf874a1c#.4aqn4szie
 
 7. Concept of abstract route
-8. $state.go - TODO
+8. $state.go
+   Once a new case is added we are changing the state to show list.
+   $state.go internally calls $state.transitionTo
 9. How to make sure that url's work with or without the trailing / : simply set the strictMode false on urlMatcherFactoryProvider
 
 
@@ -37,3 +39,4 @@ https://d2eip9sf3oo6c2.cloudfront.net/pdf/egghead-io-ui-router-cheat-sheet.pdf
 
 Note:
 use $gulp serve to run the web server.
+run node_modules\.bin\json-server cases.json to be able to post data

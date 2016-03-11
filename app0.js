@@ -121,10 +121,13 @@ app.config(function($stateProvider, $urlRouterProvider){
        .state('support.cases', {
           url:'/support/cases',
           templateUrl: '/templates/listCases.html',
-          contoller: function($scope) {
-            //TODO: This is not working, need further investigation
-            //$scope.caseList = CaseListService.getCases();
-            $scope.value = "my name";
+          resolve: {
+            caseList: function(CaseListService){
+              return CaseListService.getCases();
+            }
+          },
+          contoller: function($scope,caseList) {
+            $scope.caseList = caseList;
           }
        })
 });
