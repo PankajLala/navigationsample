@@ -1,11 +1,32 @@
 1. Concept of nested view - Had to use inline controller for some reasons adding controller to app was not working :(
-2. passing parameters using $stateParams, passing multiple parameters. Can we pass object - need to investigate
+2. passing parameters using $stateParams, passing multiple parameters.
+    Can we pass object - need to investigate
 3. How to remove # from the url generated
+    This is easily achieved by adding <base href="/"> and set app for html5Mode. But this causes a problem, navigate to a route/state and then refresh the page using browser and you will see a blank screen
+
+    Server side
+    Using this mode requires URL rewriting on server side, basically you have to rewrite all your links to entry point of your application (e.g. index.html)
+    The reason for this is that when you first visit the page (/about), e.g. after a refresh, the browser has no way of knowing that this isn't a real URL, so it goes ahead and loads it. However if you have loaded up the root page first, and all the javascript code, then when you navigate to /about Angular can get in there before the browser tries to hit the server and handle it accordingly
+    Further read:
+    http://www.advancesharp.com/blog/1191/angularjs-html5-mode-reloading-page-not-found-solution
+    http://stephenradford.me/gulp-angularjs-and-html5mode/ - To enable url rewrites using gulp-connect middleware.
+
 4. Benefit of $stateParams over query string is that there is no limit for $stateParams.
 5. Concept of multiple named views
-6. Concept of resolve - resolved property is injected into the controller, use this to fetch the data required for view instead of doing it in controller
+    Had to use inline controller for some reasons adding controller to app was not working :(
+6. Concept of resolve:
+    Resolved property is injected into the controller, use this to fetch the data required for view instead of doing it in controller.
+    If any of these dependencies are promises, they will be resolved and converted to a value before the controller is instantiated
+    and the $routeChangeSuccess event is fired.
+    The main benefit of using the ui-router resolve property is the fact that the resolved information is also made available by
+    ui-router to all child states of the current state.
+    This is a fantastic feature that allows you to resolve the data only once and use it in different controllers in different child states.
+    Further read:
+    http://www.jvandemo.com/how-to-resolve-angularjs-resources-with-ui-router/
+    http://www.codelord.net/2015/06/02/angularjs-pitfalls-using-ui-routers-resolve/
+    https://medium.com/opinionated-angularjs/advanced-routing-and-resolves-a2fcbf874a1c#.4aqn4szie
 7. Concept of abstract route - TODO
-8. $state.go
+8. $state.go - TODO
 
 
 

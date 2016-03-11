@@ -105,7 +105,6 @@ app.controller('ContactController', function($scope, $stateParams){
   $scope.user = user;
 });
 
-
 app.service('EmployeeService',['$http', function($http){
   return {
     find: function(empId){
@@ -119,4 +118,5 @@ app.service('EmployeeService',['$http', function($http){
 
 }]);
 
+//added for debugging in console
 window.app = app;
