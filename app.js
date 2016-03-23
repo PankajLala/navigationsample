@@ -97,6 +97,9 @@ app.config(function($stateProvider, $urlRouterProvider){
        })
        .state('support', {
          abstract: true,
+         data: {
+              hiddentoken: 5,
+          },
          views: {
            'header': {
            templateUrl: '/templates/partials/header.html'
@@ -121,12 +124,13 @@ app.config(function($stateProvider, $urlRouterProvider){
        .state('support.cases', {
           url:'/support/cases',
           templateUrl: '/templates/listCases.html',
-          contoller: function($scope) {
-            //TODO: This is not working, need further investigation
-            //$scope.caseList = CaseListService.getCases();
-            $scope.value = "my name";
-          }
+          controller: 'ListCaseController'
        })
+});
+
+app.controller('ListCaseController', function($scope, $state){
+  $scope.value = "my name";
+  console.log($state.current.data.hiddentoken);
 });
 
 app.controller('ContactController', function($scope, $stateParams){

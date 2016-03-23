@@ -40,3 +40,6 @@ https://d2eip9sf3oo6c2.cloudfront.net/pdf/egghead-io-ui-router-cheat-sheet.pdf
 Note:
 use $gulp serve to run the web server.
 run node_modules\.bin\json-server cases.json to be able to post data
+
+very good sample
+https://github.com/benschw/ui-router-demo
